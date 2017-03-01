@@ -65,3 +65,29 @@ function displayAreaCode(inputId, outputId) {
 
     document.getElementById(outputId).innerHTML = outputText;
 }
+
+function vaildPhone(b) {
+    var phonelength = b.length;
+    var ifnumber2 = b.slice(1, 2) + b.slice(2, 3) + b.slice(3, 4) + b.slice(6, 7) + b.slice(7, 8) + b.slice(8, 9) + b.slice(10,11) + b.slice(11, 12) + b.slice(12,13) + b.slice (13,14) + b.slice(14,15);
+    var hyphen = b.charAt(9);
+    if (phonelength == 14 && ifnumber2 >= 0 && hyphen == "-") {
+        return true
+    }
+    else {
+        return false
+    }
+}
+
+function displayvalidPhone(inputId, outputId) {
+    var input = document.getElementById(inputId).value;
+    var outputText = "";
+    if (validPhone(input) == true) {
+        outputText = "The number " + input + " is a valid Phone number.";
+    }
+    else {
+        outputText = "The number " + input + " is not a valid phone number.";
+    }
+    document.getElementById(outputId).innerHTML = outputText;
+}
+
+
