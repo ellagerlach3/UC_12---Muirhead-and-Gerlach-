@@ -45,6 +45,21 @@ function getAreaCode(phoneNum) {
     }
 }
 
+function getCoCode(phone) {
+    var coCode;
+
+    try {
+        coCode = phone.slice(6, 7) + phone.slice(7, 8) + phone.slice(8, 9);
+        if (coCode.length == 3) {
+            return coCode;
+        } else {
+        throw new Error("The CO Code is invalid.");
+        }
+    } catch (error) {
+        throw new Error("Invalid phone number: " + error.message);
+    }
+}
+
 /**
  * Displays the area code for an inputted phone number
  * @param {string} inputId  The element id for the text box
@@ -79,19 +94,6 @@ function validPhone(b) {
         return false
     }
 }
-
-function displayvalidPhone(inputId, outputId) {
-    var input = document.getElementById(inputId).value;
-    var outputText = "";
-    if (validPhone(input) == true) {
-        outputText = "The number " + input + " is a valid Phone number.";
-    }
-    else {
-        outputText = "The number " + input + " is not a valid phone number.";
-    }
-    document.getElementById(outputId).innerHTML = outputText;
-}
-
 
 /**
  * Returns an line code from a phone number: (###) ###-####
@@ -134,5 +136,16 @@ function displayLineCode(inputId, outputId) {
     }
 
     document.getElementById(outputId).innerHTML = outputText;
+}
+
+/**function displayPhoneNumberValidation(phoneInputId, messageOutputId) {
+    var outputText;
+    var phoneNum = document.getElementById(phoneInputId).value;
+    var areaCode;
+
+    try {
+    }
+
+    document.getElementById(messageOutputId).innerHTML = "Valid!";
 }
 

@@ -14,3 +14,8 @@ QUnit.test( "Errors thrown for getAreaCode", function( assert ) {
     }, "Missing ')'. An error should have been thrown." );
 });
 
+QUnit.test("Test the getCoCode function.", function (assert) {
+    var num = "(415) 827-3775";
+    var result = getCoCode(num);
+    assert.deepEqual(result, "827", "Valid CO code has passed.");
+});
