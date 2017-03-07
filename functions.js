@@ -45,15 +45,15 @@ function getAreaCode(phoneNum) {
     }
 }
 
-function getCoCode(phone) {
+function getCoCode(phoneNum) {
     var coCode;
 
     try {
-        coCode = phone.slice(6, 7) + phone.slice(7, 8) + phone.slice(8, 9);
-        if (coCode.length == 3) {
+        coCode = between(phoneNum, " ", "-");
+        if (coCode.length == 3 && Number(coCode)) {
             return coCode;
         } else {
-        throw new Error("The CO Code is invalid.");
+        throw new Error("Invalid CO Code:" + coCode);
         }
     } catch (error) {
         throw new Error("Invalid phone number: " + error.message);

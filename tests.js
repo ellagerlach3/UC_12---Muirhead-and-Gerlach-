@@ -20,6 +20,16 @@ QUnit.test("Test the getCoCode function.", function (assert) {
     assert.deepEqual(result, "827", "Valid CO code has passed.");
 });
 
+QUnit.test( "Errors thrown for getCoCode", function( assert ) {
+    assert.throws( function() {
+        getCoCode("(415) 8237-3775");
+    }, "Invalid - CO Code too long. An error should have been thrown." );
+
+    assert.throws( function() {
+        getCoCode("(415) b27-3775");
+    }, "Invalid 'b'. An error should have been thrown." );
+});
+
 QUnit.test("Test the getLineCode function", function (assert) {
     var num = "(415) 555-5555";
     var result = getLineCode(num);
@@ -28,7 +38,7 @@ QUnit.test("Test the getLineCode function", function (assert) {
 
 QUnit.test( "Errors thrown for getLineCode", function( assert ) {
     assert.throws( function() {
-        geLineCode("(415)4445555");
+        getLineCode("(415)4445555");
     }, "Missing '-'. An error should have been thrown." );
 
     assert.throws( function() {
