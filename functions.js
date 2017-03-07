@@ -138,14 +138,3 @@ function displayLineCode(inputId, outputId) {
     document.getElementById(outputId).innerHTML = outputText;
 }
 
-/**function displayPhoneNumberValidation(phoneInputId, messageOutputId) {
-    var outputText;
-    var phoneNum = document.getElementById(phoneInputId).value;
-    var areaCode;
-
-    try {
-    }
-
-    document.getElementById(messageOutputId).innerHTML = "Valid!";
-}
-
