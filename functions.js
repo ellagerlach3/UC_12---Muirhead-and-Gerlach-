@@ -49,7 +49,8 @@ function getCoCode(phoneNum) {
     var coCode;
 
     try {
-        coCode = between(phoneNum, " ", "-");
+        coCode = between(phoneNum, ")", "-");
+        coCode = coCode.trim();
         if (coCode.length == 3 && Number(coCode)) {
             return coCode;
         } else {
@@ -118,10 +119,10 @@ function validPhone(b) {
  */
 function getLineCode(phoneNum) {
 
-     var lineCode;
-
+    var lineCode;
+    phoneNum += "*";
     try {
-        lineCode = between(phoneNum, "-", "");
+        lineCode = between(phoneNum, "-", "*");
         lineCode = lineCode.trim();
         if (lineCode.length == 4 && Number(lineCode)) {
             return lineCode;
