@@ -30,10 +30,10 @@ QUnit.test( "Errors thrown for getCoCode", function( assert ) {
     }, "Invalid 'b'. An error should have been thrown." );
 });
 
-QUnit.test("Test the getLineCode function", function (assert) {
-    var num = "(415) 555-5555";
+QUnit.test("Test the getLineCode function.", function (assert) {
+    var num = "(415) 555-5546";
     var result = getLineCode(num);
-    assert.deepEqual(result, "5555", "Valid line code test passed.");
+    assert.deepEqual(result, "5546", "Valid line code test passed.");
 });
 
 QUnit.test( "Errors thrown for getLineCode", function( assert ) {
